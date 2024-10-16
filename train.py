@@ -1,7 +1,7 @@
 # train.py
 
 import os
-os.chdir('./Segmentation')
+os.chdir('./Segmentation-Digital-Rock-Images')
 
 import torch
 import torch.nn as nn
