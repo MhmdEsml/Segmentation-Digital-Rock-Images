@@ -52,7 +52,7 @@ To train the residual UNET on the selected dataset, you can use the following co
   <button onclick="copyCode('python train.py')"></button>
 </div>
 
-That's it! You have successfully trained a segmentation model on the selected data . Feel free to explore and analyze the generated images for your digital rock analysis needs.
+That's it! You have successfully trained a segmentation model on the selected data . Feel free to explore and analyze the output for your digital rock analysis needs.
 
 **4. Results**
 
