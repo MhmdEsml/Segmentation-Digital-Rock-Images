@@ -38,7 +38,10 @@ These datasets are available:
 - Parker
 
 Example:
-- Please enter the image you want to download (e.g., Berea): `Berea`
+- Please enter the image you want to download (e.g., Berea):
+<div style="border: 2px solid red; padding: 5px; display: inline-block;">
+  Berea
+</div>
 - Please enter the number of train patches: 1000
 - Please enter the number of validation patches: 100
 - Please enter the number of test patches: 100
