@@ -23,7 +23,8 @@ Once you have installed the dependencies you can download and prepare the datase
 </div>
 
 After running this script, you can choose the dataset, the numbers of training, validation, and test data.
-This datasets are available:
+
+These datasets are available:
 - Berea
 - Bandera Brown
 - Bandera Gray
@@ -35,6 +36,8 @@ This datasets are available:
 - Kirby
 - Leopard
 - Parker
+
+Just type of these in the box.
 
 **3. Accessing Generated Images**
 
