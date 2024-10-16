@@ -55,4 +55,5 @@ To train the residual UNET on the selected dataset, you can use the following co
 That's it! You have successfully trained a segmentation model on the selected data . Feel free to explore and analyze the generated images for your digital rock analysis needs.
 
 **4. Results**
+
 After finishing the training process, you can find the results in ./metrics and ./predictions
