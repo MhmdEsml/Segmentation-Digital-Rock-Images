@@ -1,5 +1,7 @@
+# train.py
+
 import os
-os.chdir('./Segmentation-Digital-Rock-Images')
+os.chdir('./Segmentation')
 
 import torch
 import torch.nn as nn
@@ -21,9 +23,8 @@ eval_metrics = {'loss': [], 'iou': [], 'iou_bg': [], 'iou_fg': [], 'dice': [], '
 # Loss function: Binary Cross-Entropy with logits
 criterion = nn.BCEWithLogitsLoss()
 
-def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=25, model_save_path='best_model.pth'):
+def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=25):
     model = model.to(device)
-    best_loss = float('inf')  # Initialize best loss to infinity
 
     for epoch in range(num_epochs):
         model.train()
@@ -77,13 +78,7 @@ def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=
               f'SSIM: {epoch_ssim:.4f}, PSNR: {epoch_psnr:.4f}')
 
         # Evaluate the model after every epoch
-        avg_eval_loss = evaluate_model(model, eval_loader, device, epoch+1)
-
-        # Save the best model based on evaluation loss
-        if avg_eval_loss < best_loss:
-            best_loss = avg_eval_loss
-            torch.save(model.state_dict(), model_save_path)  # Save the model
-            print(f"Best model saved at epoch {epoch+1} with loss {best_loss:.4f}")
+        evaluate_model(model, eval_loader, device, epoch+1)
 
     # After training is done
     plot_metrics(train_metrics, eval_metrics)
@@ -137,8 +132,6 @@ def evaluate_model(model, dataloader, device, epoch):
           f'(BG: {avg_iou_bg:.4f}, FG: {avg_iou_fg:.4f}), Dice: {avg_dice:.4f}, '
           f'SSIM: {avg_ssim:.4f}, PSNR: {avg_psnr:.4f}')
 
-    return avg_loss  # Return the average loss for model saving
-
     # Optionally, visualize predictions after certain epochs
     if epoch % 1 == 0:  # Adjust frequency as needed
         from utils.visualization import show_predictions
@@ -167,7 +160,7 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=5e-5)
 
     # Train the model
-    train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=20, model_save_path='best_model.pth')
+    train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=5)
 
 if __name__ == "__main__":
     main()
