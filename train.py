@@ -23,8 +23,11 @@ eval_metrics = {'loss': [], 'iou': [], 'iou_bg': [], 'iou_fg': [], 'dice': [], '
 # Loss function: Binary Cross-Entropy with logits
 criterion = nn.BCEWithLogitsLoss()
 
-def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=25):
+def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=25, save_path='./best_model.pth'):
     model = model.to(device)
+
+    # Initialize a variable to keep track of the best evaluation loss
+    best_eval_loss = float('inf')
 
     for epoch in range(num_epochs):
         model.train()
@@ -78,10 +81,18 @@ def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=
               f'SSIM: {epoch_ssim:.4f}, PSNR: {epoch_psnr:.4f}')
 
         # Evaluate the model after every epoch
-        evaluate_model(model, eval_loader, device, epoch+1)
+        avg_eval_loss = evaluate_model(model, eval_loader, device, epoch+1)
+
+        # Check if the current evaluation loss is the best
+        if avg_eval_loss < best_eval_loss:
+            best_eval_loss = avg_eval_loss
+            # Save the model state
+            torch.save(model.state_dict(), save_path)
+            print(f"Best model saved at epoch {epoch+1} with eval loss: {avg_eval_loss:.4f}")
 
     # After training is done
     plot_metrics(train_metrics, eval_metrics)
+
 
 def evaluate_model(model, dataloader, device, epoch):
     model.eval()  # Set model to evaluation mode
