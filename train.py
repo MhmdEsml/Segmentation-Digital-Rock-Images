@@ -10,6 +10,7 @@ from models.residual_unet import ResidualUNet
 from utils.dataset import SegmentationDataset
 from utils.metrics import iou_per_class, dice_coefficient, calculate_ssim, calculate_psnr
 from utils.visualization import show_predictions, plot_metrics
+from utils.save import save_checkpoint
 
 from tqdm import tqdm
 import matplotlib.pyplot as plt
@@ -20,14 +21,6 @@ eval_metrics = {'loss': [], 'iou': [], 'iou_bg': [], 'iou_fg': [], 'dice': [], '
 
 # Loss function: Binary Cross-Entropy with logits
 criterion = nn.BCEWithLogitsLoss()
-
-# Function to save the model
-def save_checkpoint(state, is_best, folder='checkpoints'):
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-    torch.save(state, os.path.join(folder, 'checkpoint.pth'))
-    if is_best:
-        torch.save(state, os.path.join(folder, 'best_model.pth'))
 
 def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=25):
     model = model.to(device)
