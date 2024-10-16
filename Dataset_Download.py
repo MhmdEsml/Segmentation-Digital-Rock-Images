@@ -1,7 +1,7 @@
 # main.py
 
 import os
-os.chdir('./Segmentation')
+os.chdir('./Segmentation-Digital-Rock-Images')
 
 import random
 import numpy as np
