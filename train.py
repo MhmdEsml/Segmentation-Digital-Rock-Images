@@ -1,5 +1,3 @@
-# train.py
-
 import os
 os.chdir('./Segmentation-Digital-Rock-Images')
 
@@ -23,8 +21,17 @@ eval_metrics = {'loss': [], 'iou': [], 'iou_bg': [], 'iou_fg': [], 'dice': [], '
 # Loss function: Binary Cross-Entropy with logits
 criterion = nn.BCEWithLogitsLoss()
 
+# Function to save the model
+def save_checkpoint(state, is_best, folder='checkpoints'):
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    torch.save(state, os.path.join(folder, 'checkpoint.pth'))
+    if is_best:
+        torch.save(state, os.path.join(folder, 'best_model.pth'))
+
 def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=25):
     model = model.to(device)
+    best_eval_loss = float('inf')  # Initialize best evaluation loss
 
     for epoch in range(num_epochs):
         model.train()
@@ -78,7 +85,21 @@ def train_model(model, train_loader, eval_loader, optimizer, device, num_epochs=
               f'SSIM: {epoch_ssim:.4f}, PSNR: {epoch_psnr:.4f}')
 
         # Evaluate the model after every epoch
-        evaluate_model(model, eval_loader, device, epoch+1)
+        eval_loss = evaluate_model(model, eval_loader, device, epoch+1)
+
+        # Check if this is the best model
+        is_best = eval_loss < best_eval_loss
+        if is_best:
+            best_eval_loss = eval_loss
+            print(f"New best model found at epoch {epoch+1} with evaluation loss: {best_eval_loss:.4f}")
+
+        # Save the current model state
+        save_checkpoint({
+            'epoch': epoch + 1,
+            'state_dict': model.state_dict(),
+            'optimizer': optimizer.state_dict(),
+            'loss': eval_loss
+        }, is_best)
 
     # After training is done
     plot_metrics(train_metrics, eval_metrics)
@@ -136,6 +157,8 @@ def evaluate_model(model, dataloader, device, epoch):
     if epoch % 1 == 0:  # Adjust frequency as needed
         from utils.visualization import show_predictions
         show_predictions(model, dataloader, epoch, device, num_examples=5)
+
+    return avg_loss
 
 def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
