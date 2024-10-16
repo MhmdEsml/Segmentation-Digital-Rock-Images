@@ -1,7 +1,7 @@
 # Segmentation-Digital-Rock-Images
 Welcome to the GitHub repository for semantic segmentation of 11 digital rock images from the Digital Rock Portal.
 
-## Installing the Requirements and Running the Inference Script
+## Installing the Requirements and Running the Scripts
 **1. Setting Up Environment**
 
 Before running the inference script, ensure you have the required dependencies installed. You can install them using the following command:
