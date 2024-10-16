@@ -43,44 +43,16 @@ Example:
 - Please enter the number of validation patches: `100`
 - Please enter the number of test patches: `100`
 
-**3. Accessing Generated Images**
+**3. Running train.py**
 
-After running the inference script, you can find the generated images in the "./Generated_images" directory. Additionally, the script will compress the images into a zip file named Generated_images.zip for easier distribution and storage.
+To train the residual UNET on the selected dataset, you can use the following command:
 
-That's it! You have successfully run the inference script to generate images using the diffusion model. Feel free to explore and analyze the generated images for your digital rock analysis needs.
-
-## Examples of Real and Generated Images
-
-<table align="center">
-  <tr>
-    <td style="text-align: center;">
-      <div>
-        <img src="Images/8.png" alt="Sandstone Images">
-        <figcaption>Sandstone Images</figcaption>
-      </div>
-    </td>
-    <td style="text-align: center;">
-      <div>
-        <img src="Images/9.png" alt="Carbonate Images">
-        <figcaption>Carbonate Images</figcaption>
-      </div>
-    </td>
-  </tr>
-</table>
-
-## Citation
-
-<div id="citation">
-  <pre><code>@article{ESMAEILI2024127676,
-  title = {Enhancing digital rock analysis through generative artificial intelligence: Diffusion models},
-  journal = {Neurocomputing},
-  volume = {587},
-  pages = {127676},
-  year = {2024},
-  issn = {0925-2312},
-  doi = {https://doi.org/10.1016/j.neucom.2024.127676},
-  url = {https://www.sciencedirect.com/science/article/pii/S0925231224004478},
-  author = {Mohammad Esmaeili},
-}</code></pre>
-  <button onclick="copyCitation()"></button>
+<div id="codeSnippet">
+  <pre><code>python train.py</code></pre>
+  <button onclick="copyCode('python train.py')"></button>
 </div>
+
+That's it! You have successfully trained a segmentation model on the selected data . Feel free to explore and analyze the generated images for your digital rock analysis needs.
+
+**4. Results**
+After finishing the training process, you can find the results in ./metrics and ./predictions
