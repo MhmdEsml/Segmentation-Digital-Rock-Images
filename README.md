@@ -24,17 +24,17 @@ Once you have installed the dependencies you can download and prepare the datase
 
 After running this script, you can choose the dataset, the numbers of training, validation, and test data.
 This datasets are available:
-  Berea
-  Bandera Brown
-  Bandera Gray
-  Bentheimer
-  Berea Sister Gray
-  Berea Upper Gray
-  Buff Berea
-  CastleGate
-  Kirby
-  Leopard
-  Parker
+- Berea
+- Bandera Brown
+- Bandera Gray
+- Bentheimer
+- Berea Sister Gray
+- Berea Upper Gray
+- Buff Berea
+- CastleGate
+- Kirby
+- Leopard
+- Parker
 
 **3. Accessing Generated Images**
 
