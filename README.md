@@ -37,7 +37,11 @@ These datasets are available:
 - Leopard
 - Parker
 
-Just type of these in the box.
+Example:
+- Please enter the image you want to download (e.g., Berea): `Berea`
+- Please enter the number of train patches: 1000
+- Please enter the number of validation patches: 100
+- Please enter the number of test patches: 100
 
 **3. Accessing Generated Images**
 
