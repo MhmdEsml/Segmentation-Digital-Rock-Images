@@ -56,4 +56,4 @@ That's it! You have successfully trained a segmentation model on the selected da
 
 **4. Results**
 
-After finishing the training process, you can find the results in ./metrics and ./predictions
+After finishing the training process, you can find the results in `./metrics` and `./predictions`
