@@ -57,3 +57,9 @@ That's it! You have successfully trained a segmentation model on the selected da
 **4. Results**
 
 After finishing the training process, you can find the results in `./metrics` and `./predictions`
+
+**Google Colab**
+
+You can use the following link to run the code in Google Colab:
+
+[Run on Google Colab](https://colab.research.google.com/drive/1QGv_yAQIUn_Fo1S40VlCDwtdidpTaT9G?usp=drive_link)
