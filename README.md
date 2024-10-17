@@ -4,7 +4,7 @@ Welcome to the GitHub repository for semantic segmentation of 11 digital rock im
 ## Installing the Requirements and Running the Scripts
 **1. Setting Up Environment**
 
-Before running the inference script, ensure you have the required dependencies installed. You can install them using the following command:
+Before running the scripts, ensure you have the required dependencies installed. You can install them using the following command:
 
 <div id="codeSnippet">
   <pre><code>pip install -r requirements.txt</code></pre>
