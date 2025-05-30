@@ -44,7 +44,6 @@ class UpSample(nn.Module):
 
     def forward(self, x, skip_connection):
         up = self.upconv(x)
-        # Adjust size if necessary
         if up.size() != skip_connection.size():
             up = F.interpolate(up, size=skip_connection.size()[2:], mode='bilinear', align_corners=True)
         out = torch.cat([up, skip_connection], dim=1)
@@ -82,4 +81,4 @@ class ResidualUNet(nn.Module):
         up1 = self.decoder1(up2, enc1)
 
         out = self.final_conv(up1)
-        return out  # Outputs logits; apply sigmoid during loss calculation or inference
+        return out
