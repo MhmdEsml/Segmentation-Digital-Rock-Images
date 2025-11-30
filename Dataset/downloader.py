@@ -41,4 +41,13 @@ def download_file(url_key: str, output_path: str, force_download: bool = False):
     download_url = f"{DATASET_BASE_URL}/{encoded_path}"
 
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
-    urllib.request.urlretrieve(download_url, output_path)
+
+    with tqdm(unit="B", unit_scale=True, unit_divisor=1024, desc=os.path.basename(output_path)) as pbar:
+        def reporthook(block_num, block_size, total_size):
+            if total_size > 0:
+                pbar.total = total_size
+            pbar.update(block_size)
+
+        urllib.request.urlretrieve(download_url, output_path, reporthook=reporthook)
+
+
