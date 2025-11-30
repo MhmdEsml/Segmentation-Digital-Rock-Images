@@ -6,12 +6,11 @@ Welcome to the GitHub repository for semantic segmentation of 11 digital rock im
 
 Before running the scripts, ensure you have the required dependencies installed. You can install them using the following command:
 
-<div id="codeSnippet">
-  <pre><code>pip install -r requirements.txt</code></pre>
-  <button onclick="copyCode('git clone https://github.com/MhmdEsml/Segmentation-Digital-Rock-Images')"></button>
-  <button onclick="copyCode('cd 'Segmentation-Digital-Rock-Images'')"></button>
-  <button onclick="copyCode('pip install -r requirements.txt')"></button>
-</div>
+<pre><code>
+git clone https://github.com/MhmdEsml/Segmentation-Digital-Rock-Images
+cd Segmentation-Digital-Rock-Images
+pip install -r requirements.txt
+</code></pre>
 
 This command will install all the necessary Python packages listed in the requirements.txt file.
 
