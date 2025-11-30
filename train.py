@@ -1,6 +1,4 @@
 import os
-os.chdir('./Segmentation-Digital-Rock-Images')
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -163,3 +161,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
