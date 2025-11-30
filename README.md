@@ -8,6 +8,8 @@ Before running the scripts, ensure you have the required dependencies installed.
 
 <div id="codeSnippet">
   <pre><code>pip install -r requirements.txt</code></pre>
+  <button onclick="copyCode('git clone https://github.com/MhmdEsml/Segmentation-Digital-Rock-Images')"></button>
+  <button onclick="copyCode('cd 'Segmentation-Digital-Rock-Images'')"></button>
   <button onclick="copyCode('pip install -r requirements.txt')"></button>
 </div>
 
