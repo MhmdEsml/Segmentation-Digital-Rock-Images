@@ -63,4 +63,4 @@ After finishing the training process, you can find the results in `./metrics` an
 You can use the following link to run the code in Google Colab:
 
 [Run on Google Colab]([https://colab.research.google.com/drive/1QGv_yAQIUn_Fo1S40VlCDwtdidpTaT9G?usp=drive_link](https://colab.research.google.com/github/MhmdEsml/Segmentation-Digital-Rock-Images/blob/main/test.ipynb
-))
+)
