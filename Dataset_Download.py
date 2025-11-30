@@ -30,10 +30,16 @@ def main():
     segmented_url = IMAGE_LINKS[selected_image]["segmented"]
 
     print(f"Downloading {selected_image} original data...")
-    download_file(original_url, f'{selected_image}_2d25um_grayscale_filtered.raw')
+    download_file(
+        selected_image,
+        f'{selected_image}_2d25um_grayscale_filtered.raw'
+    )
 
     print(f"Downloading {selected_image} segmented data...")
-    download_file(segmented_url, f'{selected_image}_2d25um_binary.raw')
+    download_file(
+        f'{selected_image}_binary',
+        f'{selected_image}_2d25um_binary.raw'
+    )
 
     width = DIMENSIONS["width"]
     height = DIMENSIONS["height"]
@@ -83,3 +89,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
