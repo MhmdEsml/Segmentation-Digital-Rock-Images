@@ -1,6 +1,8 @@
 import os
 import urllib.parse
 import urllib.request
+from tqdm import tqdm
+
 
 POROUS_MEDIA_DATASETS = {
     "Berea": "Berea/Berea_2d25um_grayscale_filtered.raw/Berea_2d25um_grayscale_filtered.raw",
@@ -49,5 +51,6 @@ def download_file(url_key: str, output_path: str, force_download: bool = False):
             pbar.update(block_size)
 
         urllib.request.urlretrieve(download_url, output_path, reporthook=reporthook)
+
 
 
